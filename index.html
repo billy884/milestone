@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Milestone Overlay — Gacoan Vlog (Loop)</title>
+<style>
+  /*
+    Background halaman ini SENGAJA transparan.
+    Jangan tambahkan background color apa pun di html/body.
+  */
+  *{ box-sizing:border-box; }
+  html, body{
+    margin:0;
+    width:100%;
+    min-height:100vh;
+    background:transparent;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .overlay-root{ width:100%; max-width:560px; padding:14px; }
+
+  /*
+    Satu siklus penuh (7s), berulang terus:
+    HILANG (tersembunyi) -> MUNCUL (pop in + mantul) -> GOYANG -> HILANG (fade out) -> jeda -> ulang
+  */
+  .loop{
+    position:relative;
+    animation:cycle 7s ease-in-out infinite;
+    filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));
+  }
+  @keyframes cycle{
+    0%   { opacity:0; transform:scale(.3) rotate(0deg)  translate(0,0); }   /* HILANG */
+    8%   { opacity:0; transform:scale(.3) rotate(0deg)  translate(0,0); }   /* masih hilang, jeda sebentar */
+    16%  { opacity:1; transform:scale(1.15) rotate(0deg) translate(0,0); }  /* MUNCUL, sedikit lewat (overshoot) */
+    22%  { opacity:1; transform:scale(.95) rotate(0deg)  translate(0,0); }  /* mantul balik dikit */
+    26%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(0,0); }  /* mulai GOYANG */
+    38%  { opacity:1; transform:scale(1) rotate(1deg)    translate(-3px,-3px); }
+    50%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(3px,-3px); }
+    62%  { opacity:1; transform:scale(1) rotate(1deg)    translate(-3px,3px); }
+    74%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(0,0); }  /* goyang selesai */
+    84%  { opacity:0; transform:scale(.3) rotate(0deg)   translate(0,0); }  /* HILANG lagi, mengecil sambil fade out */
+    100% { opacity:0; transform:scale(.3) rotate(0deg)   translate(0,0); }  /* jeda hilang sebelum ulang */
+  }
+  .widget-frame{
+    position:relative; width:100%; height:128px;
+    background:transparent;
+  }
+  .widget-frame iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:0;
+    background:transparent;
+  }
+</style>
+</head>
+<body>
+  <div class="overlay-root">
+    <div class="loop">
+      <div class="widget-frame">
+        <iframe
+          src="https://sociabuzz.com/pro/tribe/total1/v1/5586754269"
+          title="SociaBuzz milestone real-time"
+          scrolling="no"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
