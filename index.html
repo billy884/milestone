@@ -31,17 +31,23 @@
     filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));
   }
   @keyframes cycle{
-    0%   { opacity:0; transform:scale(.3) rotate(0deg)  translate(0,0); }   /* HILANG */
-    8%   { opacity:0; transform:scale(.3) rotate(0deg)  translate(0,0); }   /* masih hilang, jeda sebentar */
-    16%  { opacity:1; transform:scale(1.15) rotate(0deg) translate(0,0); }  /* MUNCUL, sedikit lewat (overshoot) */
-    22%  { opacity:1; transform:scale(.95) rotate(0deg)  translate(0,0); }  /* mantul balik dikit */
-    26%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(0,0); }  /* mulai GOYANG */
-    38%  { opacity:1; transform:scale(1) rotate(1deg)    translate(-3px,-3px); }
-    50%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(3px,-3px); }
-    62%  { opacity:1; transform:scale(1) rotate(1deg)    translate(-3px,3px); }
-    74%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(0,0); }  /* goyang selesai */
-    84%  { opacity:0; transform:scale(.3) rotate(0deg)   translate(0,0); }  /* HILANG lagi, mengecil sambil fade out */
-    100% { opacity:0; transform:scale(.3) rotate(0deg)   translate(0,0); }  /* jeda hilang sebelum ulang */
+    0%   { opacity:0; transform:scale(.3) rotate(0deg)  translate(0,0); }   /* HILANG - cepat */
+    4%   { opacity:0; transform:scale(.3) rotate(0deg)  translate(0,0); }   /* jeda hilang singkat */
+    8%   { opacity:1; transform:scale(1.15) rotate(0deg) translate(0,0); }  /* MUNCUL cepat, overshoot */
+    11%  { opacity:1; transform:scale(.95) rotate(0deg)  translate(0,0); }  /* mantul balik dikit */
+    15%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(0,0); }  /* mulai GOYANG (diperpanjang) */
+    22%  { opacity:1; transform:scale(1) rotate(1deg)    translate(-3px,-3px); }
+    29%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(3px,-3px); }
+    36%  { opacity:1; transform:scale(1) rotate(1deg)    translate(-3px,3px); }
+    43%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(3px,3px); }
+    50%  { opacity:1; transform:scale(1) rotate(1deg)    translate(-3px,-3px); }
+    57%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(3px,-3px); }
+    64%  { opacity:1; transform:scale(1) rotate(1deg)    translate(-3px,3px); }
+    71%  { opacity:1; transform:scale(1) rotate(-1deg)   translate(3px,3px); }
+    78%  { opacity:1; transform:scale(1) rotate(1deg)    translate(-3px,-3px); }
+    85%  { opacity:1; transform:scale(1) rotate(0deg)    translate(0,0); }  /* goyang selesai */
+    92%  { opacity:0; transform:scale(.3) rotate(0deg)   translate(0,0); }  /* HILANG lagi - cepat */
+    100% { opacity:0; transform:scale(.3) rotate(0deg)   translate(0,0); }  /* jeda singkat sebelum ulang */
   }
   .widget-frame{
     position:relative; width:100%; height:128px;
